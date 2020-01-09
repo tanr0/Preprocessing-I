@@ -3,7 +3,22 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@primary-color: #6b5b95;
+@secondary-color: #a2b9bc;
+@hover-color:#b2ad7f;
+@button-color: purple;
+@text-color: #363e47;
 
+.box-spacing{ //mixins
+	margin:1%;
+	padding:2%;
+	border-radius: 5px;
+}
+.flex-space-even{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -53,7 +68,119 @@ table {
     box-sizing: border-box;
 }
 
+
 html, body {
-    height: 100%;
+	height: 100%;
+	background: @primary-color;
+	color:@text-color;
+	font-family: 'Source Code Pro', monospace;
 }
 
+header{
+	height: 12vh;
+	background-color: @secondary-color;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	.box-spacing;
+	nav{
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		padding: 2%;
+		margin: 1%;
+
+		a {
+			padding: 2%;
+			margin: 1%;
+			text-decoration: none;
+			font-size: 1.5rem;
+			color: #6b5b95;
+		}//a anchor end
+		a:hover{
+			color: @hover-color;
+			text-decoration: underline;
+		} //hover end
+	} // nav end
+}// header end
+
+div.intro-container{
+	background-color: @secondary-color;
+	.flex-space-even;
+	.box-spacing;
+	@media(max-width:500px){flex-direction: column;}
+	h1{
+		font-weight: bold;
+		font-size: 3.0rem;
+		padding-top: 2%;
+	}
+	h2{
+		font-size: 1.8rem;
+		padding-top: 2%;
+	}
+	img{max-width: 92vw;
+		border-radius: 50%;
+	}		
+}
+
+div.content-wrapper{
+	display:grid;
+	grid-template-columns: 63% 37%;
+	.box-spacing;
+	background-color: @secondary-color;
+	div.about, div.skills{
+		.box-spacing;
+		h3{
+			font-weight: bold;
+			font-size: 1.5rem;
+			padding-bottom: 2%;
+		}
+	}
+}
+
+div.history-wrapper{
+	height:auto;
+	.box-spacing;
+	background-color: @secondary-color;
+	div.title{
+		font-weight: bold;
+		display:grid;
+		grid-template-columns: 25% 25% 50%;
+		padding-bottom: 1%;
+		font-size: 1.4rem;
+	}
+	div.row{ 
+		line-height: 2.2rem;
+		display:grid;
+		grid-template-columns: 25% 25% 50%;
+	}
+	div.odd{
+		background-color:#878f99;
+	}
+}
+
+footer{
+	.box-spacing;
+	background-color: @secondary-color;
+	.flex-space-even;
+	h3{
+		padding-bottom: 3%;
+		font-weight: bold;
+		font-size: 1.5rem;
+	}
+	a{
+		text-decoration: none;
+		color: #6b5b95;
+	}
+	a:hover{
+		color: @hover-color;
+	}
+	div.social{
+		font-size: 3.2rem;
+		display: flex;
+		justify-content: center;
+		a{
+			.box-spacing;
+		}
+	}
+}
